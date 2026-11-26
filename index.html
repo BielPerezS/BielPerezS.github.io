@@ -1,0 +1,442 @@
+<!--
+  index.html — Main structure of the portfolio webpage (HTML).
+  YoRHa dark-mode inspired interface: dark charcoal background, warm sand accents,
+  animated geometric reticle, square selectors, and formal recruiter-ready copy in English.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic setup: UTF-8 encoding, mobile viewport, and page title -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biel Pérez Silvestre — Computer Science</title>
+
+  <!-- Google Fonts: Space Grotesk (geometric headings), Inter (body copy), and JetBrains Mono (technical labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Connects this HTML document to the visual stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Atmospheric background layer: YoRHa micro-grid, vignette, and scanline sweep -->
+  <div class="yorha-grid-bg" aria-hidden="true"></div>
+  <div class="yorha-vignette" aria-hidden="true"></div>
+  <div class="yorha-scanline" aria-hidden="true"></div>
+  <!-- Full-screen YoRHa glitch overlay triggered periodically by script.js -->
+  <div class="glitch-overlay" aria-hidden="true"></div>
+
+  <!-- Authentic YoRHa background geometry: compact double-arcs + asymmetric diagonal lines -->
+  <svg class="yorha-bg-svg" id="yorha-bg-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Top-left compact double-arc -->
+    <circle cx="40" cy="-30" r="290" stroke="#dad4bb" stroke-width="1.2" stroke-opacity="0.12"/>
+    <circle cx="40" cy="-30" r="315" stroke="#dad4bb" stroke-width="1" stroke-opacity="0.08"/>
+
+    <!-- Bottom-right compact double-arc -->
+    <circle cx="1400" cy="930" r="310" stroke="#dad4bb" stroke-width="1.2" stroke-opacity="0.12"/>
+    <circle cx="1400" cy="930" r="335" stroke="#dad4bb" stroke-width="1" stroke-opacity="0.08"/>
+
+    <!-- Two asymmetric parallel lines from the top-left side (one longer, one shorter) -->
+    <line x1="150" y1="-20" x2="820" y2="449" stroke="#dad4bb" stroke-width="1" stroke-opacity="0.13"/>
+    <rect x="817" y="446" width="6" height="6" fill="#dad4bb" fill-opacity="0.24"/>
+
+    <line x1="60" y1="60" x2="450" y2="333" stroke="#dad4bb" stroke-width="1" stroke-opacity="0.11"/>
+    <rect x="447" y="330" width="5" height="5" fill="#dad4bb" fill-opacity="0.2"/>
+
+    <!-- Single diagonal line from the bottom-right side -->
+    <line x1="1320" y1="920" x2="760" y2="528" stroke="#dad4bb" stroke-width="1" stroke-opacity="0.13"/>
+    <rect x="757" y="525" width="6" height="6" fill="#dad4bb" fill-opacity="0.24"/>
+  </svg>
+
+  <!-- Rotating small YoRHa reticles (top-right and bottom-left) -->
+  <div class="yorha-rings" id="yorha-rings" aria-hidden="true">
+    <svg viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle class="ring-outer" cx="300" cy="300" r="260" stroke="#dad4bb" stroke-width="1" stroke-dasharray="10 8" stroke-opacity="0.16"/>
+      <circle class="ring-mid" cx="300" cy="300" r="205" stroke="#dad4bb" stroke-width="1.2" stroke-dasharray="48 16 6 16" stroke-opacity="0.22"/>
+      <circle class="ring-inner" cx="300" cy="300" r="140" stroke="#dad4bb" stroke-width="1" stroke-opacity="0.14"/>
+      <line x1="20" y1="300" x2="580" y2="300" stroke="#dad4bb" stroke-width="0.8" stroke-opacity="0.12"/>
+      <line x1="300" y1="20" x2="300" y2="580" stroke="#dad4bb" stroke-width="0.8" stroke-opacity="0.12"/>
+    </svg>
+  </div>
+
+  <div class="yorha-rings-bottom" id="yorha-rings-bottom" aria-hidden="true">
+    <svg viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle class="ring-outer" cx="300" cy="300" r="250" stroke="#dad4bb" stroke-width="1" stroke-dasharray="14 10" stroke-opacity="0.14"/>
+      <circle class="ring-mid" cx="300" cy="300" r="190" stroke="#dad4bb" stroke-width="1.2" stroke-dasharray="36 14 4 14" stroke-opacity="0.18"/>
+      <circle class="ring-inner" cx="300" cy="300" r="125" stroke="#dad4bb" stroke-width="1" stroke-opacity="0.12"/>
+    </svg>
+  </div>
+
+  <!-- Sticky top navigation bar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#hero" class="logo">
+        <span class="sq-bullet" aria-hidden="true"></span>
+        <span>BIEL PÉREZ</span>
+      </a>
+
+      <!-- Navigation links with YoRHa hover sweep -->
+      <nav class="nav-links" id="nav-links">
+        <a href="#about"><span>01. EDUCATION</span></a>
+        <a href="#projects"><span>02. PROJECTS</span></a>
+        <a href="#experience"><span>03. EXPERIENCE</span></a>
+        <a href="#contact"><span>04. CONTACT</span></a>
+      </nav>
+
+      <!-- Mobile hamburger menu button -->
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <!-- Modular geometric border trim -->
+    <div class="yorha-trim" aria-hidden="true"></div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION: Professional introduction -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-tag mono">
+            <span class="sq-bullet pulse" aria-hidden="true"></span>
+            <span>BARCELONA, SPAIN // COMPUTER SCIENCE (UPC)</span>
+          </div>
+
+          <h1 class="hero-title" aria-label="Biel Pérez Silvestre">
+            <span class="typewriter-ghost" aria-hidden="true">Biel Pérez Silvestre</span>
+            <span class="typewriter-live" aria-hidden="true"><span id="typed-name">Biel Pérez Silvestre</span><span class="typing-cursor"></span></span>
+          </h1>
+
+          <p class="hero-role mono">
+            Final-Year Computer Science Student · Thesis at BSC-CNS
+          </p>
+
+          <p class="hero-sub">
+            Final-year Computer Science student at <strong>UPC (Facultat d’Informàtica de Barcelona)</strong>, currently completing my Bachelor's Thesis at <strong>Barcelona Supercomputing Center (BSC-CNS)</strong>. Responsible, proactive, and always looking to learn and adapt to the situation.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-ghost"><span>VIEW PROJECTS</span></a>
+            <a href="#contact" class="btn btn-ghost"><span>CONTACT</span></a>
+          </div>
+        </div>
+
+        <!-- Quick profile summary panel for recruiters -->
+        <aside class="hero-card reveal" aria-label="Profile summary">
+          <div class="panel-header mono">
+            <span><i class="sq-bullet" aria-hidden="true"></i> PROFILE SUMMARY</span>
+            <span class="panel-code">ID // BPS-2027</span>
+          </div>
+
+          <ul class="hero-card-list">
+            <li>
+              <span class="mono key">DEGREE</span>
+              <strong>BS in Computer Science (UPC · Expected 2027)</strong>
+            </li>
+            <li>
+              <span class="mono key">CURRENT THESIS</span>
+              <strong>Barcelona Supercomputing Center (BSC-CNS)</strong>
+            </li>
+            <li>
+              <span class="mono key">EXCHANGE</span>
+              <strong>University of Oulu (Finland, 2026)</strong>
+            </li>
+            <li>
+              <span class="mono key">LANGUAGES</span>
+              <strong>Catalan (Native) · Spanish (Native) · English (C1)</strong>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Horizontal modular divider -->
+    <div class="yorha-divider container" aria-hidden="true">
+      <span class="sq-bullet"></span>
+      <span class="divider-line"></span>
+      <span class="sq-bullet"></span>
+    </div>
+
+    <!-- SECTION 01: EDUCATION AND LANGUAGES -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title reveal">
+          <span class="sq-bullet" aria-hidden="true"></span>
+          <span class="mono title-index">01</span>
+          <span>EDUCATION</span>
+        </h2>
+
+        <div class="about-stack">
+          <div class="edu-list">
+            <article class="edu-item reveal">
+              <div class="edu-top">
+                <span class="mono edu-tag">BS DEGREE</span>
+                <span class="mono edu-date">Expected 2027</span>
+              </div>
+              <h3>UPC — Facultat d’Informàtica de Barcelona</h3>
+              <p class="edu-degree">BS in Computer Science</p>
+              <p class="edu-desc">
+                <strong>Coursework:</strong> Computer Architecture, Comparison of Learning Algorithms, Computational Theory, Programming Languages, Graphics, Computer Vision, Cryptography and Quantum Computing, Interaction and Interface Design.
+              </p>
+            </article>
+
+            <article class="edu-item reveal">
+              <div class="edu-top">
+                <span class="mono edu-tag">TRAINING</span>
+                <span class="mono edu-date">Sep – Oct 2026</span>
+              </div>
+              <h3>Barcelona Supercomputing Center (BSC-CNS)</h3>
+              <p class="edu-degree">Scientific Training Course · Machine Learning for Earth System Modeling</p>
+              <p class="edu-desc">
+                Trained on Graph Neural Network (GNN) workflows using ECMWF’s Anemoi framework (<code>anemoi-core</code>, <code>anemoi-inference</code>) and Copernicus Data Store geospatial datasets.
+              </p>
+            </article>
+
+            <article class="edu-item reveal">
+              <div class="edu-top">
+                <span class="mono edu-tag">EXCHANGE</span>
+                <span class="mono edu-date">Jan – Jun 2026</span>
+              </div>
+              <h3>University of Oulu — Erasmus Exchange</h3>
+              <p class="edu-degree">International Academic Exchange</p>
+              <p class="edu-desc">
+                <strong>Coursework:</strong> AI Ethics, Privacy and Legislation, Machine Learning, Big Data Processing and Applications, Software for Intelligent Systems, and Artificial Intelligence.
+              </p>
+            </article>
+          </div>
+
+          <!-- Spoken languages bar laid out horizontally below Education -->
+          <aside class="about-card reveal">
+            <div class="panel-header mono">
+              <span><i class="sq-bullet" aria-hidden="true"></i> SPOKEN LANGUAGES</span>
+            </div>
+
+            <div class="lang-list">
+              <div class="lang-item">
+                <div class="lang-head">
+                  <span>Catalan</span>
+                  <span class="mono">Native</span>
+                </div>
+                <div class="lang-bar"><span style="--fill: 100%"></span></div>
+              </div>
+
+              <div class="lang-item">
+                <div class="lang-head">
+                  <span>Spanish</span>
+                  <span class="mono">Native</span>
+                </div>
+                <div class="lang-bar"><span style="--fill: 100%"></span></div>
+              </div>
+
+              <div class="lang-item">
+                <div class="lang-head">
+                  <span>English</span>
+                  <span class="mono">C1</span>
+                </div>
+                <div class="lang-bar"><span style="--fill: 90%"></span></div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 02: TECHNICAL PROJECTS -->
+    <section class="section section-alt" id="projects">
+      <div class="container">
+        <h2 class="section-title reveal">
+          <span class="sq-bullet" aria-hidden="true"></span>
+          <span class="mono title-index">02</span>
+          <span>TECHNICAL PROJECTS</span>
+        </h2>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <article class="project-card reveal">
+            <div class="project-top">
+              <span class="mono project-tag">JAVA // APPLICATION</span>
+              <a class="mono project-link" href="https://github.com/BielPerezS" target="_blank" rel="noreferrer">Repository ↗</a>
+            </div>
+            <h3>Scrabble PROP Project</h3>
+            <p>
+              Collaborated with university peers to develop an end-to-end desktop Scrabble application in Java following a layered architecture (data, domain, persistence, and presentation). Built Java Swing UI components, including the in-game pause overlay and main menu controls.
+            </p>
+            <ul class="tech-list mono">
+              <li>Java</li>
+              <li>Swing</li>
+              <li>IntelliJ IDEA</li>
+              <li>Git</li>
+            </ul>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card reveal">
+            <div class="project-top">
+              <span class="mono project-tag">C++ // 3D GRAPHICS</span>
+              <a class="mono project-link" href="https://github.com/BielPerezS/Graphics-Playground" target="_blank" rel="noreferrer">Repository ↗</a>
+            </div>
+            <h3>Graphics Playground</h3>
+            <p>
+              Developed a 3D graphics playground application using Qt and OpenGL. Implemented functionalities to render 3D models, set up scenes, and apply lighting effects and user interaction through keyboard and mouse events.
+            </p>
+            <ul class="tech-list mono">
+              <li>C++</li>
+              <li>Qt</li>
+              <li>OpenGL</li>
+            </ul>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card reveal">
+            <div class="project-top">
+              <span class="mono project-tag">PYTHON // COMPILERS</span>
+              <a class="mono project-link" href="https://github.com/BielPerezS/J-Interpreter-miniJ" target="_blank" rel="noreferrer">Repository ↗</a>
+            </div>
+            <h3>J Language Interpreter (miniJ)</h3>
+            <p>
+              Built an interpreter for a subset of the J programming language using Python and ANTLR. Implemented lexical and syntactic analysis through a custom ANTLR grammar.
+            </p>
+            <ul class="tech-list mono">
+              <li>Python</li>
+              <li>ANTLR</li>
+              <li>Makefile</li>
+              <li>NumPy</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 03: EXPERIENCE AND SKILLS -->
+    <section class="section" id="experience">
+      <div class="container">
+        <h2 class="section-title reveal">
+          <span class="sq-bullet" aria-hidden="true"></span>
+          <span class="mono title-index">03</span>
+          <span>EXPERIENCE &amp; SKILLS</span>
+        </h2>
+
+        <div class="exp-grid">
+          <!-- Work experience timeline -->
+          <div class="timeline">
+            <article class="timeline-item reveal">
+              <span class="mono date">June – September 2025</span>
+              <h3>AI Intern</h3>
+              <p class="company">Ajuntament de Castelldefels</p>
+              <p>Streamlined public administration processes using AI-driven automation. Gathered requirements from municipal staff and translated them into practical AI solutions.</p>
+            </article>
+
+            <article class="timeline-item reveal">
+              <span class="mono date">June – August 2023</span>
+              <h3>Environmental Awareness Advocate</h3>
+              <p class="company">GEPEC – Corriol Camanegra, Vilanova i la Geltrú</p>
+              <p>Participated in environmental awareness campaigns, engaging with the public and managing materials.</p>
+            </article>
+
+            <article class="timeline-item reveal">
+              <span class="mono date">June – November 2022</span>
+              <h3>Supporting Actor</h3>
+              <p class="company">La Imagen Permanente — Directed by Laura Ferrés</p>
+              <p>Worked on a professional film set, developing communication skills, focus, and the ability to work under pressure.</p>
+            </article>
+          </div>
+
+          <!-- Technical skills box -->
+          <aside class="skills-box reveal">
+            <div class="panel-header mono">
+              <span><i class="sq-bullet" aria-hidden="true"></i> PROGRAMMING LANGUAGES</span>
+            </div>
+            <div class="skills-tags mono">
+              <span>C++</span>
+              <span>C</span>
+              <span>Java</span>
+              <span>Python</span>
+              <span>SQL</span>
+              <span>Haskell</span>
+              <span>R</span>
+              <span>Matlab</span>
+              <span>GLSL</span>
+              <span>Prolog</span>
+            </div>
+
+            <div class="panel-header mono skills-subtitle">
+              <span><i class="sq-bullet" aria-hidden="true"></i> TECHNOLOGIES &amp; TOOLS</span>
+            </div>
+            <div class="skills-tags mono">
+              <span>Git</span>
+              <span>GitLab</span>
+              <span>Visual Studio</span>
+              <span>IntelliJ IDEA</span>
+              <span>Linux</span>
+              <span>Windows</span>
+              <span>Apache Spark</span>
+              <span>OpenGL</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 04: PROFESSIONAL CONTACT -->
+    <section class="section section-alt" id="contact">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div class="panel-header mono">
+            <span><i class="sq-bullet" aria-hidden="true"></i> PROFESSIONAL CONTACT</span>
+            <span>BARCELONA / REMOTE</span>
+          </div>
+          <h2 class="contact-title">Let's discuss an opportunity</h2>
+          <p class="contact-lead">
+            Open to internship, junior software engineering, AI, and 3D graphics roles in Barcelona or remote.
+          </p>
+
+          <div class="contact-grid mono">
+            <a href="mailto:bielperezs@gmail.com" class="contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-10 6L2 7"/>
+              </svg>
+              <span>bielperezs@gmail.com</span>
+            </a>
+
+            <a href="tel:+34681628843" class="contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>+34 681 62 88 43</span>
+            </a>
+
+            <a href="https://github.com/BielPerezS" target="_blank" rel="noreferrer" class="contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.09 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.06.78 2.14 0 1.54-.01 2.79-.01 3.17 0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+              </svg>
+              <span>GitHub</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/bielperezsilvestre" target="_blank" rel="noreferrer" class="contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14Zm-1.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75ZM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68Zm1.39 9.94v-8.37H5.5v8.37h2.77Z"/>
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer: script.js automatically populates the current year in #year -->
+  <footer class="footer">
+    <div class="yorha-trim" aria-hidden="true"></div>
+    <div class="container footer-inner">
+      <p class="mono"><span class="sq-bullet" aria-hidden="true"></span> Biel Pérez Silvestre · <span id="year"></span></p>
+      <span class="mono">Barcelona, Spain</span>
+    </div>
+  </footer>
+
+  <!-- Connects JavaScript at the end so all HTML elements are already loaded -->
+  <script src="script.js"></script>
+</body>
+</html>
